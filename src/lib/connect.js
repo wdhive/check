@@ -13,7 +13,7 @@ const connectToDB = async () => {
         deprecationErrors: true,
       },
     });
-    db = client.db("ecom-Shop");
+    db = client.db("raj");
   }
 
   return db;
