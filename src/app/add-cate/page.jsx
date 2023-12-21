@@ -8,7 +8,7 @@ import { revalidatePath } from "next/cache";
 const getCategories = async () => {
   try {
     const db = await connectToDB();
-    const collection = db.collection("categories");
+    const collection = db.collection("categori");
 
     const category = await collection.find({}).toArray();
     return category;
@@ -21,7 +21,7 @@ const addCategory = async (FormData) => {
   "use server";
   try {
     const db = await connectToDB();
-    const collection = db.collection("categories");
+    const collection = db.collection("categori");
 
     const name = FormData.get("name");
     const parentId = FormData.get("parentId");
