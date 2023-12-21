@@ -38,7 +38,7 @@ const addCategory = async (FormData) => {
     const cate = await collection.insertOne(categoryObj);
     console.log(cate);
     if (cate.acknowledged == true) {
-      revalidatePath("/");
+      revalidatePath("/add-cate");
     }
   } catch (error) {
     return error.message;
