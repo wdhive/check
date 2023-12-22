@@ -6,15 +6,11 @@ import Link from "next/link";
 import { revalidatePath } from "next/cache";
 
 const getCategories = async () => {
-  try {
-    const db = await connectToDB();
-    const collection = db.collection("categori");
+  const db = await connectToDB();
+  const collection = db.collection("categori");
 
-    const category = await collection.find({}).toArray();
-    return category;
-  } catch (err) {
-    return err.message;
-  }
+  const category = await collection.find({}).toArray();
+  return category;
 };
 
 const addCategory = async (FormData) => {
@@ -45,7 +41,7 @@ const addCategory = async (FormData) => {
   }
 };
 
-async function page() {
+async function Page() {
   const data = await getCategories();
   return (
     <div className="w-full fixed top-0 left-0 z-[999] bg-[#00000039] flex items-center justify-center h-screen">
@@ -101,4 +97,4 @@ async function page() {
   );
 }
 
-export default page;
+export default Page;
